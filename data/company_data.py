@@ -2,7 +2,6 @@ import re
 import pandas as pd
 from transformers import pipeline
 
-# Define scoring weights
 weights = {
     'team_size': 0.2,
     'market_opportunity': 0.2,
@@ -12,7 +11,6 @@ weights = {
     'traction': 0.2
 }
 
-# Define the scoring criteria
 criteria = {
     'team_size': {
         "Single founder, no team, no experience": 1,
@@ -134,13 +132,9 @@ Scalability: Solution has no issues to scale globally or within home country but
 Traction: Prototype testing with initial customers (Beta testing)
 """
 
-# Determine eligibility and store the result
 result = determine_eligibility(input_text)
 
-# Create a DataFrame from the result
 df = pd.DataFrame([result])
-
-# Save the DataFrame to a CSV file
 df.to_csv('eligibility_results.csv', index=False)
 
 # Print the result
